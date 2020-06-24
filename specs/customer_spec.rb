@@ -40,6 +40,15 @@ class TestCustomer < Minitest::Test
         assert_equal(false, @customer_2.customer_over_18)
     end
 
+    def test_can_be_served__true()
+        assert_equal(true, @customer.can_be_served)
+    end
+
+    def test_can_be_served__false()
+        @customer.buy_drink(@drink, @pub)
+        assert_equal(false, @customer.can_be_served)
+    end
+
     def test_buy_drink
         @customer.buy_drink(@drink, @pub)
         assert_equal(19, @customer.wallet)

@@ -17,7 +17,7 @@ class Customer
         # get drink price
         price = drink.price
         # check if customer wallet >= drink price
-        if @wallet >= price && customer_over_18
+        if @wallet >= price && customer_over_18 && can_be_served
             # customer wallet reduced by drink price
             @wallet -= price
             # pub till increase by drink price
@@ -25,6 +25,10 @@ class Customer
 
             @drunkenness += drink.alcohol_level
         end
+    end
+
+    def can_be_served()
+        return @drunkenness <= 4
     end
 
 end 
