@@ -1,11 +1,12 @@
 class Customer
 
-    attr_reader(:name, :wallet, :age)
+    attr_reader(:name, :wallet, :age, :drunkenness)
 
     def initialize(name, wallet, age)
         @name = name
         @wallet = wallet
         @age = age
+        @drunkenness = 0
     end
 
     def customer_over_18()
@@ -21,6 +22,8 @@ class Customer
             @wallet -= price
             # pub till increase by drink price
             pub.till += price
+
+            @drunkenness += drink.alcohol_level
         end
     end
 
