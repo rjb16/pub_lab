@@ -10,6 +10,8 @@ class TestCustomer < Minitest::Test
 
     def setup()
         @customer = Customer.new("Tomek", 20, 27)
+        @customer_1 = Customer.new("John", 20, 25)
+        @customer_2 = Customer.new("Michael", 30 , 15)
         @drink = Drink.new("coke", 1)
         @pub = Pub.new("The Roseleaf", 100, [@drink])
     end
@@ -24,6 +26,14 @@ class TestCustomer < Minitest::Test
 
     def test_has_age()
         assert_equal(27, @customer.age)
+    end
+
+    def test_customer_over_18__true()
+        assert_equal(true, @customer_1.customer_over_18)
+    end
+
+    def test_customer_over_18__false()
+        assert_equal(false, @customer_2.customer_over_18)
     end
 
     def test_buy_drink
